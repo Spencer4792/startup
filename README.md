@@ -23,5 +23,3 @@ For more details, view the full project plan here: [View the project plan](WebPr
 - **Authentication:** Secure user registration and login processes.
 - **Database:** Robust data management for user and event information.
 - **WebSocket:** Real-time data communication through WebSockets.
-
-[View the project plan](https://github.com/Spencer4792/startup/files/14018092/WebProgramming.pdf)
