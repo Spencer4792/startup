@@ -5,7 +5,7 @@ This application allows users to discover and participate in local community eve
 
 ## View the Project Plan
 
-For more details, view the full project plan here: ![Project Plan](Spencer4792/startup/WebProgrammingStartup.jpg)
+For more details, view the full project plan here: ![Project Plan](WebProgrammingStartup.jpg)
 
 ## Key Features
 - **Event Creation and Browsing:** Users can create events, browse upcoming events, and join them. Events range from local workshops and sports activities to neighborhood meetings and impromptu gatherings.
