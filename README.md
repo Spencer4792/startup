@@ -38,3 +38,6 @@ Here is a rough outline of what the app format would look like: ![Project Plan](
 
 ## Signup Tab
 - The signup tab has different options for creating an account. There is a place to add a username, email for registration, and a password as well. Currently there is no functionality and the data will not be stored anywhere, but in the future there is plans to flesh it out.
+
+## Dashboard Tab
+- The dashboard tab allows the user to connect with members of their community through a feed system. It will show pictures, and allow users to host events as well. Currently there are no photos or videos, but it allows forthe user to input an event.
