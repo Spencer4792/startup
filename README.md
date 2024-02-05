@@ -24,5 +24,5 @@ Here is a rough outline of what the app format would look like: ![Project Plan](
 - **Database:** Robust data management for user and event information.
 - **WebSocket:** Real-time data communication through WebSockets.
 
-##Events Tab
+## Events Tab
 - The events tab allows the user to locate events in their area, and it is the cornerstone of the website idea that I am trying to develop. It contains an event, location, date and time, the ability to join the event, alongside a description of the event and what is required to attend. Currently it is very bare-bones, but I expect it to be one of the most time intenseive parts of the website to implement.
