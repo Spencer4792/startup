@@ -41,3 +41,6 @@ Here is a rough outline of what the app format would look like: ![Project Plan](
 
 ## Dashboard Tab
 - The dashboard tab allows the user to connect with members of their community through a feed system. It will show pictures, and allow users to host events as well. Currently there are no photos or videos, but it allows forthe user to input an event.
+
+## Server.js
+- This is designed to create functionality for a chat feature that will allow neighbors to actively communicate with each other.
