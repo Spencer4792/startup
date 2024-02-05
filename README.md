@@ -24,8 +24,11 @@ Here is a rough outline of what the app format would look like: ![Project Plan](
 - **Database:** Robust data management for user and event information.
 - **WebSocket:** Real-time data communication through WebSockets.
 
-- ## Index Tab (Home Page)
+## Index Tab (Home Page)
 - This tab is the home page for the Community Together website. It contains events, their locations, reviews, and a link to the github repository, as well as the tabs to get to all of the other pages. There is a join button for people who are interested in signing up, and I am planning on adding an event calendar page as well in the future.
 
 ## Events Tab
 - The events tab allows the user to locate events in their area, and it is the cornerstone of the website idea that I am trying to develop. It contains an event, location, date and time, the ability to join the event, alongside a description of the event and what is required to attend. Currently it is very bare-bones, but I expect it to be one of the most time intenseive parts of the website to implement.
+
+## Profile Tab
+-The profile tab contains information pertaining to the person who has signed up for the website. Right now it is pretty bare bones, containing only a username, bio, and interests, but I'm hoping to make it more of an interactive experience which will allow people in the local area to really get to know their neighbors!
