@@ -31,4 +31,7 @@ Here is a rough outline of what the app format would look like: ![Project Plan](
 - The events tab allows the user to locate events in their area, and it is the cornerstone of the website idea that I am trying to develop. It contains an event, location, date and time, the ability to join the event, alongside a description of the event and what is required to attend. Currently it is very bare-bones, but I expect it to be one of the most time intenseive parts of the website to implement.
 
 ## Profile Tab
--The profile tab contains information pertaining to the person who has signed up for the website. Right now it is pretty bare bones, containing only a username, bio, and interests, but I'm hoping to make it more of an interactive experience which will allow people in the local area to really get to know their neighbors!
+- The profile tab contains information pertaining to the person who has signed up for the website. Right now it is pretty bare bones, containing only a username, bio, and interests, but I'm hoping to make it more of an interactive experience which will allow people in the local area to really get to know their neighbors!
+
+## Signup Tab
+- The signup tab has different options for creating an account. There is a place to add a username, email for registration, and a password as well. Currently there is no functionality and the data will not be stored anywhere, but in the future there is plans to flesh it out.
