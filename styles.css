@@ -11,10 +11,10 @@ html, body {
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
     line-height: 1.6;
     padding: 20px;
-    background-color: #f4f4f4;
+    background-color: #f0f8ff;
     display: flex;
     flex-direction: column;
 }
