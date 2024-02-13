@@ -44,3 +44,6 @@ Here is a rough outline of what the app format would look like: ![Project Plan](
 
 ## Server.js
 - This is designed to create functionality for a chat feature that will allow neighbors to actively communicate with each other.
+
+## Styles.css
+- This is where the good stuff is. The current stylings add headers and footers that create a more professional looking website. I will definitely be adding more to make it family friendly.
