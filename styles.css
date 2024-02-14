@@ -1,4 +1,4 @@
-/* Basic Reset */
+
 * {
     margin: 0;
     padding: 0;
@@ -113,6 +113,12 @@ form button:hover {
     opacity: 0.8;
 }
 
+.button-container {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+}
+
 @media (max-width: 600px) {
     form {
         grid-template-columns: 1fr;
@@ -140,3 +146,8 @@ form button:hover {
     color: #666;
 }
 
+.event img {
+    width: 750px;
+    height: 500px;
+    object-fit: cover;
+}
