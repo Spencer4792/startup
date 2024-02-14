@@ -1,49 +1,44 @@
-# Real Time Community Event Planner
+# Pillar Constructs Co. Website
 
 ## Introduction
-This application allows users to discover and participate in local community events in real-time. It targets individuals looking to engage more with their local community, participate in events, or organize their own. Is a neighbor having a barbecue? Is the whole town getting together for a volleyball game? This is the place to find out.
+This application is centered solely around a construction business that I will be starting with my friend. The idea is to give customers some tangible way to reach out to us and see what we're all about.
 
 ## View the Project Plan
 
 Here is a rough outline of what the app format would look like: ![Project Plan](WebProgrammingStartup.jpg)
 
+## STARTUP CSS IMPLEMENTATIONS
+- I completely redid the project for part. I found that I wasn't too engaged in the idea of CommunityTogether (My last Project) so I decided to revamp it and create something that I will actually use.
+
 ## Key Features
-- **Event Creation and Browsing:** Users can create events, browse upcoming events, and join them. Events range from local workshops and sports activities to neighborhood meetings and impromptu gatherings.
-- **Real-Time Chat and Updates:** Utilizing WebSockets, the app offers real-time communication channels for each event, enabling instant attendee and organizer communication.
-- **Interactive Maps:** Integrating Google and Apple maps to display events on interactive maps.
-- **User Profiles and Authentication:** Features secure user authentication and profile customization.
-- **Feedback and Ratings:** Enables attendees to provide event feedback and ratings, ensuring community safety and engagement.
-- **Notifications and Alerts:** Customizable real-time notifications about event changes and updates.
+- **Service and Project Showcases: Detailed and visually appealing presentations of our services and past projects.
+- **Real-Time Contact Form: A straightforward and user-friendly form on the "Contact Us" page, ensuring you can reach out to us anytime.
+- **Responsive Design: A website design that looks great on any device, enhancing your browsing experience whether on desktop, tablet, or mobile.
+- **Accessibility and Usability: Prioritized navigation and information architecture for an intuitive user experience.
 
 ## Technology Implementation
-- **HTML:** Use of HTML for structuring the application’s web pages.
-- **CSS:** Responsive and user-friendly interface design with CSS.
-- **JavaScript:** Dynamic features like event registration and live chat implemented in JavaScript.
-- **Web Services:** Integration of third-party APIs for enhanced functionality.
-- **Authentication:** Secure user registration and login processes.
-- **Database:** Robust data management for user and event information.
-- **WebSocket:** Real-time data communication through WebSockets.
+- **HTML & CSS: For structuring and styling our website, ensuring it's visually appealing and accessible.
+- **JavaScript: Enhances interactivity and user engagement on the site.
+- **Responsive Design: Implemented through CSS media queries, ensuring the site is fully functional and beautiful on any screen size.
 
 ## Index Tab (Home Page)
-- This tab is the home page for the Community Together website. It contains events, their locations, reviews, and a link to the github repository, as well as the tabs to get to all of the other pages. There is a join button for people who are interested in signing up, and I am planning on adding an event calendar page as well in the future.
+- This tab is the home page for the Pillar Constructs Co. website. It contains information regarding what we do and user reviews, and links to all of the different pages.
 
-## Events Tab
-- The events tab allows the user to locate events in their area, and it is the cornerstone of the website idea that I am trying to develop. It contains an event, location, date and time, the ability to join the event, alongside a description of the event and what is required to attend. Currently it is very bare-bones, but I expect it to be one of the most time intenseive parts of the website to implement.
+## About Tab
+- This tab just gives some basic information on Me and Aaron (My business partner). We want customers to put a name to the company, and we want to appear human, as they say.
 
-## Profile Tab
-- The profile tab contains information pertaining to the person who has signed up for the website. Right now it is pretty bare bones, containing only a username, bio, and interests, but I'm hoping to make it more of an interactive experience which will allow people in the local area to really get to know their neighbors!
+## Contact Tab
+- This tab gives you the ability to contact us. There is currently some placeholder information and some text boxes that will allow connectivity in the future.
 
-## Login Tab
-- The login tab is used to login to the user account. Currently it only contains email and password. Will consider changing it to username instead of email in the future. This tab has no functionality at the moment.
+## Services Tab
+- This tab just gives basic information on the services we provide. The hope is that in the future we will have actual images of us doing work on homes, but for now there are just stock images.
 
-## Signup Tab
-- The signup tab has different options for creating an account. There is a place to add a username, email for registration, and a password as well. Currently there is no functionality and the data will not be stored anywhere, but in the future there is plans to flesh it out.
+## Projects Tab
+- This will be a list of our proudest accomplishments. The idea being that customers will be able to see our work and visualize what we can do for them.
 
-## Dashboard Tab
-- The dashboard tab allows the user to connect with members of their community through a feed system. It will show pictures, and allow users to host events as well. Currently there are no photos or videos, but it allows forthe user to input an event.
+## Assets Folder
+- This contains a list of all of the photographs that I use in the website. Per standard use, similar to other websites
 
-## Server.js
-- This is designed to create functionality for a chat feature that will allow neighbors to actively communicate with each other.
+## Styles.css file
+-This is where all of my fonts, styles, and ways of making the website look good are stored.
 
-## Styles.css
-- This is where the good stuff is. The current stylings add headers and footers that create a more professional looking website. I will definitely be adding more to make it family friendly.
