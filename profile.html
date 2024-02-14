@@ -23,6 +23,10 @@
         <section id="profile-info">
             <h1>Your Profile</h1>
             <form action="/update-profile" method="POST">
+
+                <label for="profile-picture">Profile Picture:</label>
+                <input type="file" id="profile-picture" name="profile-picture">
+
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
                 
@@ -31,8 +35,20 @@
                 
                 <label for="interests">Interests:</label>
                 <input type="text" id="interests" name="interests">
+
+                <label for="twitter">Twitter:</label>
+                <input type="url" id="twitter" name="twitter">
+
+                <label for="facebook">Facebook:</label>
+                <input type="url" id="facebook" name="facebook">
+
+                <label for="notifications">Notifications:</label>
+                <input type="checkbox" id="notifications" name="notifications">
+
                 
-                <button type="submit">Update Profile</button>
+                <div class="button-container">
+                    <button type="submit">Update Profile</button>
+                </div>                
             </form>
         </section>
     </main>
