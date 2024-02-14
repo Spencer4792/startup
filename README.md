@@ -42,3 +42,5 @@ Here is a rough outline of what the app format would look like: ![Project Plan](
 ## Styles.css file
 - This is where all of my fonts, styles, and ways of making the website look good are stored.
 
+## Database.js file
+- This is where I will host the . It currently retains the information from the last project CommunityTogether
