@@ -44,3 +44,6 @@ Here is a rough outline of what the app format would look like: ![Project Plan](
 
 ## Database.js file
 - This is where I will host the . It currently retains the information from the last project CommunityTogether
+
+## Login.html file
+- This is our users are able to login to their accounts that they have with us. Currently there is no actual functionality, but the framework is in place.
