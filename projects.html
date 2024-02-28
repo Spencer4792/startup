@@ -21,46 +21,54 @@
                 </ul>
             </nav>
         </header>
-    </div>   
+    </div>
     
     <main>
         <section id="project-list">
             <h1>Featured Projects</h1>
-            <br>
-            <div class="project">
-                <h2>Placeholder Project</h2>
-                <img src="/assets/residential-complex.jpg" alt="Luxury Residential Complex">
-                <p>Completion Date: 2024-03-15</p>
-                <p>Location: Most likely somewhere in Utah.</p>
-                <p>Summary: A state-of-the-art residential complex featuring modern amenities, sustainable construction practices, and breathtaking city views.</p>
-            </div>
-            <div class="project">
-                <h2>Placeholder Project</h2>
-                <img src="/assets/residential-complex.jpg" alt="Luxury Residential Complex">
-                <p>Completion Date: 2024-03-15</p>
-                <p>Location: Most likely somewhere in Utah.</p>
-                <p>Summary: A state-of-the-art residential complex featuring modern amenities, sustainable construction practices, and breathtaking city views.</p>
-            </div>
-            <div class="project">
-                <h2>Placeholder Project</h2>
-                <img src="/assets/residential-complex.jpg" alt="Luxury Residential Complex">
-                <p>Completion Date: 2024-03-15</p>
-                <p>Location: Most likely somewhere in Utah.</p>
-                <p>Summary: A state-of-the-art residential complex featuring modern amenities, sustainable construction practices, and breathtaking city views.</p>
-            </div>
-            <div class="project">
-                <h2>Placeholder Project</h2>
-                <img src="/assets/residential-complex.jpg" alt="Luxury Residential Complex">
-                <p>Completion Date: 2024-03-15</p>
-                <p>Location: Most likely somewhere in Utah.</p>
-                <p>Summary: A state-of-the-art residential complex featuring modern amenities, sustainable construction practices, and breathtaking city views.</p>
-            </div>
         </section>
     </main>
     
     <footer>
         <p>&copy; 2024 Pillar Constructs Co. All rights reserved.</p>
-        <p>Connect with us on [Insert Social Media Links]</p>
     </footer>
+
+    <script>
+        const mockProjects = [
+            {
+                id: 1,
+                name: "Luxury Residential Complex",
+                completionDate: "2024-03-15",
+                location: "Somewhere in Utah",
+                description: "A state-of-the-art residential complex featuring modern amenities, sustainable construction practices, and breathtaking city views."
+            },
+            {
+                id: 2,
+                name: "Eco-friendly Commercial Plaza",
+                completionDate: "2025-09-20",
+                location: "Downtown Cityscape",
+                description: "An innovative commercial plaza designed with sustainability at its core, offering green spaces, energy-efficient buildings, and a vibrant community hub."
+            },
+        ];
+        
+        function displayProjects() {
+            const projectsContainer = document.getElementById("project-list");
+            projectsContainer.innerHTML = ''; // Initially clear the container
+        
+            mockProjects.forEach(project => {
+                const projectHTML = `
+                    <div class="project">
+                        <h2>${project.name}</h2>
+                        <p><strong>Completion Date:</strong> ${project.completionDate}</p>
+                        <p><strong>Location:</strong> ${project.location}</p>
+                        <p>${project.description}</p>
+                    </div>
+                `;
+                projectsContainer.innerHTML += projectHTML;
+            });
+        }
+        
+        document.addEventListener("DOMContentLoaded", displayProjects);
+    </script>
 </body>
 </html>
