@@ -47,3 +47,6 @@ Here is a rough outline of what the app format would look like: ![Project Plan](
 
 ## Login.html file
 - This is our users are able to login to their accounts that they have with us. Currently there is no actual functionality, but the framework is in place.
+
+## Chat.html file
+- This is the tab where our customers will be able to talk to us directly concerning any complaints. I might take it out of the final product because I don't think that it is exceptionally useful right now, especially because we don't have many customers or a customer support team. But I will add it to fulfill project requirements.
