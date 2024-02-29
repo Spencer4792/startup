@@ -55,5 +55,28 @@
     <footer>
         <p>&copy; 2024 Pillar Constructs Co. All rights reserved.</p>
     </footer>
+    
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from submitting
+            
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var message = document.getElementById("message").value;
+            
+            if (!name || !email || !message) {
+                alert("Please fill in all fields.");
+                return false;
+            }
+            
+            if (!/\S+@\S+\.\S+/.test(email)) {
+                alert("Email address is invalid.");
+                return false;
+            }
+            
+            alert("Form is valid. Submitting...");
+        });
+    </script>
+        
 </body>
 </html>
