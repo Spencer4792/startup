@@ -39,35 +39,6 @@
         <p>&copy; 2024 Pillar Constructs Co. All rights reserved.</p>
     </footer>
 
-    <script>
-        function sendMessage() {
-            const messageBox = document.getElementById("messages");
-            const messageInput = document.getElementById("chat-message");
-            const message = messageInput.value;
-
-            if (message.trim() === "") return; // Prevent sending empty messages
-
-            // Display the user's message
-            displayMessage("You", message);
-
-            // Simulate receiving a response after a short delay
-            setTimeout(() => {
-                displayMessage("Support", "Thank you for your message. How can we help you today?");
-            }, 1000);
-
-            // Clear the input after sending
-            messageInput.value = "";
-        }
-
-        function displayMessage(sender, message) {
-            const messageBox = document.getElementById("messages");
-            const messageElement = document.createElement("p");
-            messageElement.textContent = `${sender}: ${message}`;
-            messageBox.appendChild(messageElement);
-
-            // Scroll to the bottom of the message box
-            messageBox.scrollTop = messageBox.scrollHeight;
-        }
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>

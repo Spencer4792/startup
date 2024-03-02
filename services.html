@@ -102,28 +102,7 @@
         <p>&copy; 2024 Pillar Constructs Co. All rights reserved.</p>
     </footer>
 
-    <script>
-        function toggleDescription(descId) {
-            var description = document.getElementById(descId);
-            if (description.style.display === "none" || !description.style.display) {
-                description.style.display = "block";
-            } else {
-                description.style.display = "none";
-            }
-        }
-        function toggleDescription(descId) {
-            var description = document.getElementById(descId);
-            var indicator = description.previousElementSibling.querySelector('.toggle-indicator');
-            
-            if (description.style.display === "none" || !description.style.display) {
-                description.style.display = "block";
-                indicator.textContent = '-'; // Change to '-' when visible
-            } else {
-                description.style.display = "none";
-                indicator.textContent = '+'; // Change back to '+' when hidden
-            }
-        }
-    </script>
+    <script src="main.js"></script>
     
 </body>
 </html>

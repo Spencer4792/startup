@@ -36,27 +36,7 @@
         </section>
     </main>
     
-    <script>
-    const mockUsers = [
-        { username: "user1", password: "pass1" },
-        { username: "user2", password: "pass2" }
-    ];
-
-    function validateLogin() {
-        const username = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
-        const messageElement = document.getElementById("loginMessage");
-
-        const userExists = mockUsers.some(user => user.username === username && user.password === password);
-
-        if (userExists) {
-            messageElement.innerText = "Login Successful!";
-            // Redirect to another page or update UI accordingly
-        } else {
-            messageElement.innerText = "Invalid username or password.";
-        }
-    }
-    </script>
+    <script src="main.js"></script>
     
     <footer>
         <p>&copy; 2024 Pillar Constructs Co. All rights reserved.</p>
