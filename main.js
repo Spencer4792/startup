@@ -76,3 +76,42 @@ document.addEventListener("DOMContentLoaded", function() {
     // Call displayProjects if on the projects page
     displayProjects();
 });
+
+const mockProjects = [
+    {
+        id: 1,
+        name: "Luxury Residential Complex",
+        completionDate: "2024-03-15",
+        location: "Somewhere in Utah",
+        description: "A state-of-the-art residential complex featuring modern amenities, sustainable construction practices, and breathtaking city views.",
+        //imageUrl will be implemented in the future
+    },
+    // Add more projects as needed
+];
+
+function displayProjects(searchQuery = '') {
+    const projectsContainer = document.getElementById("project-list");
+    projectsContainer.innerHTML = '<h1>Featured Projects</h1>'; // Clear existing projects but keep the title
+
+    const filteredProjects = mockProjects.filter(project => 
+        project.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    filteredProjects.forEach(project => {
+        const projectHTML = `
+            <div class="project">
+                <h2>${project.name}</h2>
+                <p>${project.description}</p>
+                <!-- Include other project details here -->
+            </div>
+        `;
+        projectsContainer.innerHTML += projectHTML;
+    });
+}
+
+document.getElementById('search-input').addEventListener('input', (event) => {
+    const searchQuery = event.target.value;
+    displayProjects(searchQuery); // Update the displayed projects based on the search query
+});
+
+document.addEventListener('DOMContentLoaded', () => displayProjects());
