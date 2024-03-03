@@ -42,11 +42,16 @@ Here is a rough outline of what the app format would look like: ![Project Plan](
 ## Styles.css file
 - This is where all of my fonts, styles, and ways of making the website look good are stored.
 
+## STARTUP JAVASCRIPT IMPLEMENTATION
+
 ## Database.js file
-- This is where I will host the . It currently retains the information from the last project CommunityTogether
+- This is where I will host the data for the website in the future. It will keep track of user data, as well as when and where appointments are. It currently retains the information from the last project CommunityTogether. By the end of the project I should have the url changed.
 
 ## Login.html file
-- This is our users are able to login to their accounts that they have with us. Currently there is no actual functionality, but the framework is in place.
+- This is our users are able to login to their accounts that they have with us. Currently there is no actual functionality, but the framework is in place. There is now a place to enter a username and a password, in addition to feedback loops that let the user know whether or not that is a valid username or password (currently all usernames and passwords will not work because there is no database).
 
 ## Chat.html file
-- This is the tab where our customers will be able to talk to us directly concerning any complaints. I might take it out of the final product because I don't think that it is exceptionally useful right now, especially because we don't have many customers or a customer support team. But I will add it to fulfill project requirements.
+- This is the tab where our customers will be able to talk to us directly concerning any complaints. I might take it out of the final product because I don't think that it is exceptionally useful right now, especially because we don't have many customers or a customer support team. But in the future I believe that it could be useful if our business takes off, so I will keep it in the background.
+
+## main.java
+- This is the file that contains all of the javascript for the project. It is centered largely around ease of access. It has several different functionalities such as a search bar to look through projects, toggleability on certain objects so the website doesn't take up massive amounts of screen space, in addition to a scroll wheel that will come into effect when there is more information regarding the business. The javascript also is a large function of the chat implementation and it functions as the catalyst for the storage of user information that we collect throuh logins.
