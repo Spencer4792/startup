@@ -14,15 +14,18 @@ function validateLogin() {
     }
 }
 
-// Function to display projects from projects.html
-function displayProjects() {
+function displayProjects(searchQuery = '') {
     const projectsContainer = document.getElementById("project-list");
-    if (!projectsContainer) return; // Exit if the projects container doesn't exist on the page
-    projectsContainer.innerHTML = ''; // Initially clear the container
+    projectsContainer.innerHTML = '<h1>Featured Projects</h1>'; // Initially clear the container, but keep the title
 
-    mockProjects.forEach(project => {
+    const filteredProjects = mockProjects.filter(project =>
+        project.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    filteredProjects.forEach(project => {
         const projectHTML = `
             <div class="project">
+                ${project.imageUrl ? `<img src="${project.imageUrl}" alt="${project.name}" class="project-image">` : ''}
                 <h2>${project.name}</h2>
                 <p><strong>Completion Date:</strong> ${project.completionDate}</p>
                 <p><strong>Location:</strong> ${project.location}</p>
@@ -32,6 +35,7 @@ function displayProjects() {
         projectsContainer.innerHTML += projectHTML;
     });
 }
+
 
 // Function to toggle service descriptions from services.html
 function toggleDescription(descId) {
@@ -82,32 +86,43 @@ const mockProjects = [
         id: 1,
         name: "Luxury Residential Complex",
         completionDate: "2024-03-15",
-        location: "Somewhere in Utah",
+        location: "Texas, of Course",
         description: "A state-of-the-art residential complex featuring modern amenities, sustainable construction practices, and breathtaking city views.",
-        //imageUrl will be implemented in the future
+        imageUrl: "assets/luxurytier.jpeg"
     },
-    // Add more projects as needed
+    {
+        id: 2,
+        name: "Nice Residential Complex",
+        completionDate: "2024-03-15",
+        location: "Somewhere in Utah",
+        description: "A beautiful residential complex that has bright lights and scenic vistas.",
+        imageUrl: "assets/reallyNice.jpeg"
+    },
+    {
+        id: 3,
+        name: "Somewhat Luxury Residential Complex",
+        completionDate: "2024-03-15",
+        location: "New York",
+        description: "Very reasonable luxury residential complex, adequate swimming pool size.",
+        imageUrl: "assets/somewhatLuxury.jpeg"
+    },
+    {
+        id: 4,
+        name: "Middle-Tier Residential Complex",
+        completionDate: "2024-03-15",
+        location: "Orange County California",
+        description: "I mean, are you sure that you want this one?",
+        imageUrl: "assets/decentApartment.jpeg"
+    },
+    {
+        id: 5,
+        name: "Crappy Residential Complex",
+        completionDate: "2023-12-14",
+        location: "Detroit",
+        description: "This ain't our finest work.",
+        imageUrl: "assets/crappyApartment.jpeg"
+    },
 ];
-
-function displayProjects(searchQuery = '') {
-    const projectsContainer = document.getElementById("project-list");
-    projectsContainer.innerHTML = '<h1>Featured Projects</h1>'; // Clear existing projects but keep the title
-
-    const filteredProjects = mockProjects.filter(project => 
-        project.name.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-
-    filteredProjects.forEach(project => {
-        const projectHTML = `
-            <div class="project">
-                <h2>${project.name}</h2>
-                <p>${project.description}</p>
-                <!-- Include other project details here -->
-            </div>
-        `;
-        projectsContainer.innerHTML += projectHTML;
-    });
-}
 
 document.getElementById('search-input').addEventListener('input', (event) => {
     const searchQuery = event.target.value;

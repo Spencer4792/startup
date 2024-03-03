@@ -277,3 +277,9 @@ footer {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
+.project-image {
+    width: 100%; /* or any specific width */
+    height: auto; /* maintain aspect ratio */
+    margin-bottom: 20px; /* adjust spacing */
+}
