@@ -73,11 +73,9 @@ document.addEventListener("DOMContentLoaded", function() {
             }
             
             alert("Form is valid. Submitting...");
-            // Implement actual form submission here
         });
     }
 
-    // Call displayProjects if on the projects page
     displayProjects();
 });
 
@@ -126,7 +124,52 @@ const mockProjects = [
 
 document.getElementById('search-input').addEventListener('input', (event) => {
     const searchQuery = event.target.value;
-    displayProjects(searchQuery); // Update the displayed projects based on the search query
+    displayProjects(searchQuery);
 });
 
 document.addEventListener('DOMContentLoaded', () => displayProjects());
+
+function sendMessage() {
+    const messageBox = document.getElementById("messages");
+    const messageInput = document.getElementById("chat-message");
+    const message = messageInput.value.trim();
+
+    if (message) {
+        const newMessageElement = document.createElement("p");
+        newMessageElement.textContent = message;
+        messageBox.appendChild(newMessageElement);
+
+        messageInput.value = "";
+        messageBox.scrollTop = messageBox.scrollHeight;
+    }
+}
+
+
+const mockUsers = [
+    { username: "user1", password: "pass1" },
+    { username: "user2", password: "pass2" }
+];
+
+function validateLogin() {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    const messageElement = document.getElementById("loginMessage");
+
+    const userExists = mockUsers.some(user => user.username === username && user.password === password);
+
+    if (userExists) {
+        messageElement.innerText = "Login Successful!";
+    } else {
+        messageElement.innerText = "Invalid username or password.";
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            validateLogin();
+        });
+    }
+});
