@@ -28,11 +28,18 @@
         <section id="chat-section" class="content-section">
             <h2>Chat with Us</h2>
             <div id="chat-box">
-                <div id="messages" class="chat-messages"></div>
-                <input type="text" id="chat-message" placeholder="Type your message here..." class="chat-input" />
-                <button onclick="sendMessage()" class="chat-send-btn">Send</button>
+                <div id="messages" class="chat-messages">
+                    <p class="chat-message">Hello! What can I help you with today? Here are some options you can type:</p>
+                    <ul class="chat-message">
+                        <li>I have concerns about my project</li>
+                        <li>Schedule an Appointment</li>
+                        <li>Other</li>
+                    </ul>
+                </div>
+                <input type="text" id="chat-message" placeholder="Type your option here..." class="chat-input" />
+                <button onclick="simulateChatResponse()" class="chat-send-btn">Send</button>
             </div>
-        </section>
+        </section>           
     </main>
 
     <footer>

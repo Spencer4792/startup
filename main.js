@@ -1,4 +1,3 @@
-// Function to validate login from login.html
 function validateLogin() {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
@@ -8,7 +7,8 @@ function validateLogin() {
 
     if (userExists) {
         messageElement.innerText = "Login Successful!";
-        // Redirect to another page or update UI accordingly
+        sessionStorage.setItem("loggedIn", true);
+        window.location.href = "user.html"; // Make sure the path here is correct
     } else {
         messageElement.innerText = "Invalid username or password.";
     }
@@ -132,37 +132,39 @@ document.addEventListener('DOMContentLoaded', () => displayProjects());
 function sendMessage() {
     const messageBox = document.getElementById("messages");
     const messageInput = document.getElementById("chat-message");
-    const message = messageInput.value.trim();
+    const userMessage = messageInput.value.trim();
 
-    if (message) {
-        const newMessageElement = document.createElement("p");
-        newMessageElement.textContent = message;
-        messageBox.appendChild(newMessageElement);
-
+    if (userMessage) {
+        addMessageToChat("user", userMessage);
         messageInput.value = "";
-        messageBox.scrollTop = messageBox.scrollHeight;
+        setTimeout(() => {
+            const replyMessage = "Thanks for your message! This is an automated reply.";
+            addMessageToChat("auto-reply", replyMessage);
+        }, 1000);
     }
 }
 
+function addMessageToChat(sender, message) {
+    const messageBox = document.getElementById("messages");
+    const messageElement = document.createElement("p");
+    if (sender === "auto-reply") {
+        messageElement.style.color = "#007bff";
+    }
+    messageElement.textContent = message;
+    messageBox.appendChild(messageElement);
+    messageBox.scrollTop = messageBox.scrollHeight;
+}
 
 const mockUsers = [
     { username: "user1", password: "pass1" },
     { username: "user2", password: "pass2" }
 ];
 
-function validateLogin() {
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-    const messageElement = document.getElementById("loginMessage");
-
-    const userExists = mockUsers.some(user => user.username === username && user.password === password);
-
-    if (userExists) {
-        messageElement.innerText = "Login Successful!";
-    } else {
-        messageElement.innerText = "Invalid username or password.";
+document.addEventListener('DOMContentLoaded', () => {
+    if (sessionStorage.getItem("loggedIn")) {
     }
-}
+});
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('loginForm');
@@ -171,5 +173,40 @@ document.addEventListener('DOMContentLoaded', () => {
             event.preventDefault();
             validateLogin();
         });
+    }
+});
+
+function simulateChatResponse() {
+    const messageBox = document.getElementById("messages");
+    const messageInput = document.getElementById("chat-message");
+    const userMessage = messageInput.value.trim().toLowerCase();
+
+    const userMessageElement = document.createElement("p");
+    userMessageElement.textContent = "You: " + messageInput.value;
+    messageBox.appendChild(userMessageElement);
+
+    let replyMessage = "I'm sorry, I didn't understand that. Could you try one of the options listed above?";
+    if (userMessage.includes("concerns about my project")) {
+        replyMessage = "I understand you have concerns about your project. Could you provide more detail so we can address it effectively?";
+    } else if (userMessage.includes("schedule")) {
+        replyMessage = "To schedule an appointment, please visit our Appointment Scheduling Page or call us directly.";
+    } else if (userMessage.includes("other")) {
+        replyMessage = "Please type in your concern, and I'll do my best to assist you.";
+    }
+
+    setTimeout(() => {
+        const replyElement = document.createElement("p");
+        replyElement.textContent = "Virtual Assistant: " + replyMessage;
+        messageBox.appendChild(replyElement);
+        messageBox.scrollTop = messageBox.scrollHeight;
+    }, 1000);
+
+    messageInput.value = "";
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    if (window.location.pathname.endsWith('user.html') && !sessionStorage.getItem("loggedIn")) {
+        // Redirect back to login page or show an error
+        window.location.href = "login.html"; // Redirect to login if not authenticated
     }
 });

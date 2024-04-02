@@ -279,7 +279,20 @@ footer {
 }
 
 .project-image {
-    width: 100%; /* or any specific width */
-    height: auto; /* maintain aspect ratio */
-    margin-bottom: 20px; /* adjust spacing */
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.chat-message {
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.chat-message.user {
+    background-color: #daf1da;
+}
+
+.chat-message.virtual-assistant {
+    background-color: #e8e8e8;
 }
