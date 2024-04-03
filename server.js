@@ -1,4 +1,6 @@
-const User = require('.User');
+require('dotenv').config();
+const mongoose = require('mongoose');
+const User = require('/User');
 const express = require('express');
 const app = express();
 app.use(express.json());
@@ -17,7 +19,7 @@ app.post('/api/signup', async (req, res) => {
   }
 });
 
-const mongoURI = `mongodb+srv://${process.env.DB_USER}:${encodeURIComponent(process.env.DB_PASSWORD)}@${process.env.DB_HOST}${dbName}?retryWrites=true&w=majority&appName=Cluster0`;
+const mongoURI = `mongodb+srv://${process.env.DB_USER}:${encodeURIComponent(process.env.DB_PASSWORD)}@cluster0.fttthpj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected successfully'))
