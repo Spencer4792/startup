@@ -37,7 +37,6 @@ function displayProjects(searchQuery = '') {
 }
 
 
-// Function to toggle service descriptions from services.html
 function toggleDescription(descId) {
     var description = document.getElementById(descId);
     var indicator = description.previousElementSibling.querySelector('.toggle-indicator');
@@ -51,33 +50,35 @@ function toggleDescription(descId) {
     }
 }
 
-// Prevent form submission and validate form from contact.html
-document.addEventListener("DOMContentLoaded", function() {
-    const contactForm = document.getElementById("contactForm");
-    if (contactForm) {
-        contactForm.addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent the form from submitting
-            
-            var name = document.getElementById("name").value;
-            var email = document.getElementById("email").value;
-            var message = document.getElementById("message").value;
-            
-            if (!name || !email || !message) {
-                alert("Please fill in all fields.");
-                return false;
-            }
-            
-            if (!/\S+@\S+\.\S+/.test(email)) {
-                alert("Email address is invalid.");
-                return false;
-            }
-            
-            alert("Form is valid. Submitting...");
-        });
-    }
+const signupForm = document.getElementById('signupForm');
+if (signupForm) {
+  signupForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const formData = {
+      name: document.getElementById('name').value,
+      phoneNumber: document.getElementById('phoneNumber').value,
+      email: document.getElementById('email').value,
+      password: document.getElementById('password').value,
+    };
 
-    displayProjects();
-});
+    fetch('/api/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+    .then(response => {
+      if (response.ok) {
+        window.location.href = 'user.html';
+      } else {
+        return response.text().then(text => { throw new Error(text) });
+      }
+    })
+    .catch(error => alert('Error during sign up: ' + error.message));
+  });
+}
+  
 
 const mockProjects = [
     {
