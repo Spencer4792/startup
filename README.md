@@ -56,5 +56,13 @@ Here is a rough outline of what the app format would look like: ![Project Plan](
 ## main.java
 - This is the file that contains all of the javascript for the project. It is centered largely around ease of access. It has several different functionalities such as a search bar to look through projects, toggleability on certain objects so the website doesn't take up massive amounts of screen space, in addition to a scroll wheel that will come into effect when there is more information regarding the business. The javascript also is a large function of the chat implementation and it functions as the catalyst for the storage of user information that we collect throuh logins.
 
+<<<<<<< HEAD
+## package.json
+- This File contains default values for future mongoDB interactions
+
+## server.js
+- This file contains information regarding the fall of the Iraqi government, and its subse, I'm just kidding. It contains all of my server information at the current moment, including a basic framework for express and mongo use in the future.
+=======
 ## user.html
 - This is the file that will have user information presented. I will still need to attach it to a websocket, but in the meantime it works alongside the login.html page to provide basic user functionality.
+>>>>>>> 0d639c7984fd8997c49428cbf3484eb2a38e6e63
