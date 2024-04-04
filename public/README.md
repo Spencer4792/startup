@@ -56,11 +56,25 @@ Here is a rough outline of what the app format would look like: ![Project Plan](
 ## main.java
 - This is the file that contains all of the javascript for the project. It is centered largely around ease of access. It has several different functionalities such as a search bar to look through projects, toggleability on certain objects so the website doesn't take up massive amounts of screen space, in addition to a scroll wheel that will come into effect when there is more information regarding the business. The javascript also is a large function of the chat implementation and it functions as the catalyst for the storage of user information that we collect throuh logins.
 
+## STARTUP SERVER IMPLEMENTATION
+
 ## package.json
 - This File contains default values for future mongoDB interactions
 
 ## server.js
-- This file contains all of my server information at the current moment, including a basic framework for express and mongo use in the future.
+- This file contains all of my server information at the current moment. It currently holds the framework for the storage of information from the login, signup, chat, and contact us pages.
   
 ## user.html
 - This is the file that will have user information presented. I will still need to attach it to a websocket, but in the meantime it works alongside the login.html page to provide basic user functionality.
+
+## public folder
+- This folder currently contains all of the information that is necessary for the front end of things. In order to keep the backend more organized, I intentionally created a separate folder with items only accessible by viewers.
+
+## .gitignore and .env
+- These contain my MongoDB login information and passwords. The .env file will not be found on the github repository, as it contains sensitive information.
+
+## User.js
+- Currently contains the framework for the signup database functionality.
+
+## signup.html
+- This file is a basic html file that allows the customer to sign up for our website. It is only tied to the login page currently.
