@@ -1,18 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Pillar Constructs Co.</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div>
-    <form id="signupForm">
-      <input type="text" id="name" placeholder="Name" required>
-      <input type="text" id="phoneNumber" placeholder="Phone Number" required>
-      <input type="email" id="email" placeholder="Email" required>
-      <input type="password" id="password" placeholder="Password" required>
-      <button type="submit">Sign Up</button>
-    </form>
-  </div>
-  
-  <script src="main.js"></script>
+    <div class="header-container">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="projects.html">Our Projects</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="chat.html">Chat</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>   
+
+    <main>
+        <div class="form-container">
+            <h2>Sign Up</h2>
+            <form id="signupForm">
+                <input type="text" id="name" placeholder="Name" required>
+                <input type="text" id="phoneNumber" placeholder="Phone Number" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit" class="form-button">Sign Up</button>
+            </form>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Pillar Constructs Co. All rights reserved.</p>
+    </footer>
+
+    <script src="main.js"></script>
 </body>
 </html>
