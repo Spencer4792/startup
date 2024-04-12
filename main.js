@@ -256,3 +256,19 @@ function addMessageToChat(sender, message) {
 socket.onmessage = function(event) {
     addMessageToChat("Server", event.data);
 };
+
+document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const feedback = document.getElementById('feedback').value;
+
+    fetch('/api/feedback', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ feedback })
+    })
+    .then(response => response.json())
+    .then(data => alert('Thank you for your feedback!'))
+    .catch(error => console.error('Error:', error));
+});
