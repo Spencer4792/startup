@@ -51,31 +51,41 @@ function toggleDescription(descId) {
 }
 
 document.getElementById('signupForm').addEventListener('submit', function(event) {
-    event.preventDefault();
+    event.preventDefault();  // Prevent the form from submitting the traditional way
     const formData = {
-      username: document.getElementById('name').value,
-      email: document.getElementById('email').value,
-      phoneNumber: document.getElementById('phoneNumber').value,
-      password: document.getElementById('password').value,
+        username: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phoneNumber: document.getElementById('phoneNumber').value,
+        password: document.getElementById('password').value,
     };
-  
+
     fetch('/api/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
     })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Signup failed: ' + response.statusText);
+        }
+        return response.json();
+    })
     .then(data => {
-      console.log('Success:', data);
+        displayFeedback('Signup successful! Welcome, ' + formData.username); 
     })
     .catch((error) => {
-      console.error('Error:', error);
+        displayFeedback(error.message, true);
     });
-  });
-  
-  
+});
+
+function displayFeedback(message, isError) {
+    const feedbackElement = document.getElementById('signupFeedback');
+    feedbackElement.textContent = message;
+    feedbackElement.style.color = isError ? 'red' : 'green';
+    feedbackElement.style.display = 'block';
+}
 
 const mockProjects = [
     {

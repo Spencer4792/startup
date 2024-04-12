@@ -8,14 +8,11 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
 }, { collection: 'LoginInfo' });
 
-const User = mongoose.model('User', userSchema);
-module.exports = User;
-
 userSchema.pre('save', function(next) {
   if (!this.isModified('password')) return next();
 
-  const salt = bcrypt.genSaltSync(10);
-  this.password = bcrypt.hashSync(this.password, salt);
+  const salt = crypto.randomBytes(16).toString('hex');
+  this.password = crypto.pbkdf2Sync(this.password, salt, 1000, 64, `sha512`).toString(`hex`);
   next();
 });
 
