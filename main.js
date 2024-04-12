@@ -232,3 +232,27 @@ socket.onclose = function(event) {
 socket.onerror = function(error) {
   console.log(`[error] ${error.message}`);
 };
+
+function sendMessage() {
+    const messageInput = document.getElementById("chat-message");
+    const userMessage = messageInput.value.trim();
+
+    if (userMessage) {
+        socket.send(userMessage);
+        addMessageToChat("You", userMessage);
+        messageInput.value = "";
+    }
+}
+
+function addMessageToChat(sender, message) {
+    const messageBox = document.getElementById("messages");
+    const messageElement = document.createElement("p");
+    messageElement.className = sender === "You" ? "chat-message user" : "chat-message";
+    messageElement.textContent = sender + ": " + message;
+    messageBox.appendChild(messageElement);
+    messageBox.scrollTop = messageBox.scrollHeight;
+}
+
+socket.onmessage = function(event) {
+    addMessageToChat("Server", event.data);
+};
