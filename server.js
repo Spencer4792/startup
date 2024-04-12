@@ -3,6 +3,9 @@ const mongoose = require('mongoose');
 const User = require('./user');
 const express = require('express');
 const app = express();
+const WebSocket = require('ws');
+const server = require('http').createServer(app);
+const wss = new WebSocket.Server({ server });
 const mongoURI = `mongodb+srv://${process.env.DB_USER}:${encodeURIComponent(process.env.DB_PASSWORD)}@${process.env.DB_HOST}/${process.env.DB_NAME}?retryWrites=true&w=majority&appName=Cluster0`;
 app.use(express.json());
 
@@ -45,21 +48,17 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
-const WebSocket = require('ws');
-const server = require('http').createServer(app);
-const wss = new WebSocket.Server({ server });
-
 wss.on('connection', function connection(ws) {
   ws.on('message', function incoming(message) {
     console.log('received: %s', message);
-    ws.send('Message received!');
+    wss.clients.forEach(function each(client) {
+      if (client !== ws && client.readyState === WebSocket.OPEN) {
+        client.send(message);
+      }
+    });
   });
 
   ws.on('close', () => {
     console.log('Client disconnected');
   });
-});
-
-server.listen(3000, () => {
-  console.log('Server running on http://localhost:3000');
 });
