@@ -8,11 +8,11 @@ app.use(express.json());
 app.post('/api/signup', async (req, res) => {
   try {
     const { name, phoneNumber, email, password } = req.body;
-    const newUser = new User({ name, phoneNumber, email, password });
+    const newUser = new User({ username: name, phoneNumber, email, password });
     await newUser.save();
     res.status(201).send('User registered successfully');
   } catch (error) {
-    if (error.code === 11000) {
+    if (error.name === 'MongoError' && error.code === 11000) {
       return res.status(400).send('Email already exists');
     }
     res.status(500).send('Error registering new user');
