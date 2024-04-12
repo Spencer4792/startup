@@ -207,7 +207,28 @@ function simulateChatResponse() {
 
 document.addEventListener('DOMContentLoaded', () => {
     if (window.location.pathname.endsWith('user.html') && !sessionStorage.getItem("loggedIn")) {
-        // Redirect back to login page or show an error
-        window.location.href = "login.html"; // Redirect to login if not authenticated
+        window.location.href = "login.html";
     }
 });
+
+const socket = new WebSocket('ws://localhost:3000');
+
+socket.onopen = function(e) {
+  console.log("Connection established!");
+};
+
+socket.onmessage = function(event) {
+  console.log(`Data received from server: ${event.data}`);
+};
+
+socket.onclose = function(event) {
+  if (event.wasClean) {
+    console.log(`Connection closed cleanly, code=${event.code}, reason=${event.reason}`);
+  } else {
+    console.log('Connection died');
+  }
+};
+
+socket.onerror = function(error) {
+  console.log(`[error] ${error.message}`);
+};
