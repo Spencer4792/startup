@@ -128,8 +128,6 @@ document.getElementById('search-input').addEventListener('input', (event) => {
     displayProjects(searchQuery);
 });
 
-document.addEventListener('DOMContentLoaded', () => displayProjects());
-
 function sendMessage() {
     const messageBox = document.getElementById("messages");
     const messageInput = document.getElementById("chat-message");
@@ -160,22 +158,6 @@ const mockUsers = [
     { username: "user1", password: "pass1" },
     { username: "user2", password: "pass2" }
 ];
-
-document.addEventListener('DOMContentLoaded', () => {
-    if (sessionStorage.getItem("loggedIn")) {
-    }
-});
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    const loginForm = document.getElementById('loginForm');
-    if (loginForm) {
-        loginForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            validateLogin();
-        });
-    }
-});
 
 function simulateChatResponse() {
     const messageBox = document.getElementById("messages");
@@ -211,3 +193,24 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = "login.html"; // Redirect to login if not authenticated
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    displayProjects();
+    setupLoginForm();
+    checkLoginStatus();
+});
+
+function setupLoginForm() {
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            validateLogin();
+        });
+    }
+}
+
+function checkLoginStatus() {
+    if (sessionStorage.getItem("loggedIn")) {
+    }
+}
