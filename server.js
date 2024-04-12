@@ -5,6 +5,16 @@ const express = require('express');
 const app = express();
 app.use(express.json());
 
+const mongoURI = `mongodb+srv://${process.env.DB_USER}:${encodeURIComponent(process.env.DB_PASSWORD)}@${process.env.DB_HOST}/${process.env.DB_NAME}?retryWrites=true&w=majority&appName=Cluster0`;
+
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('MongoDB connected successfully'))
+  .catch(err => console.error('MongoDB connection error:', err));
+
+app.listen(3000, () => {
+  console.log(`Server running`);
+});
+
 app.post('/api/signup', async (req, res) => {
   try {
     const { name, phoneNumber, email, password } = req.body;
@@ -17,16 +27,6 @@ app.post('/api/signup', async (req, res) => {
     }
     res.status(500).send('Error registering new user');
   }
-});
-
-const mongoURI = `mongodb+srv://${process.env.DB_USER}:${encodeURIComponent(process.env.DB_PASSWORD)}@cluster0.fttthpj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
-
-mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('MongoDB connected successfully'))
-  .catch(err => console.error('MongoDB connection error:', err));
-
-app.listen(3000, () => {
-  console.log(`Server running`);
 });
 
 app.post('/api/login', async (req, res) => {
