@@ -78,3 +78,14 @@ Here is a rough outline of what the app format would look like: ![Project Plan](
 
 ## signup.html
 - This file is a basic html file that allows the customer to sign up for our website. It is only tied to the login page currently.
+
+## STARTUP LOGIN IMPLEMENTATION
+
+## server.js
+- Added the MongoDB storage, added a database known as LoginInfo, and created a storage system for all of the information.
+
+## user.html
+- Added the basic css and login information for user functionality
+
+## user.js
+- Added tons of functionality, including the ability to pull data from a node server and then move it to the mongo database.
