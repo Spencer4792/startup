@@ -50,35 +50,42 @@ function toggleDescription(descId) {
     }
 }
 
-const signupForm = document.getElementById('signupForm');
-if (signupForm) {
-  signupForm.addEventListener('submit', function(event) {
-    event.preventDefault();
+document.getElementById('signupForm').addEventListener('submit', function(event) {
+    event.preventDefault();  // Prevent the form from submitting the traditional way
     const formData = {
-      name: document.getElementById('name').value,
-      phoneNumber: document.getElementById('phoneNumber').value,
-      email: document.getElementById('email').value,
-      password: document.getElementById('password').value,
+        username: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phoneNumber: document.getElementById('phoneNumber').value,
+        password: document.getElementById('password').value,
     };
 
     fetch('/api/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
     })
     .then(response => {
-      if (response.ok) {
-        window.location.href = 'user.html';
-      } else {
-        return response.text().then(text => { throw new Error(text) });
-      }
+        if (!response.ok) {
+            throw new Error('Signup failed: ' + response.statusText);
+        }
+        return response.json();
     })
-    .catch(error => alert('Error during sign up: ' + error.message));
-  });
+    .then(data => {
+        displayFeedback('Signup successful! Welcome, ' + formData.username); 
+    })
+    .catch((error) => {
+        displayFeedback(error.message, true);
+    });
+});
+
+function displayFeedback(message, isError) {
+    const feedbackElement = document.getElementById('signupFeedback');
+    feedbackElement.textContent = message;
+    feedbackElement.style.color = isError ? 'red' : 'green';
+    feedbackElement.style.display = 'block';
 }
-  
 
 const mockProjects = [
     {
@@ -128,8 +135,6 @@ document.getElementById('search-input').addEventListener('input', (event) => {
     displayProjects(searchQuery);
 });
 
-document.addEventListener('DOMContentLoaded', () => displayProjects());
-
 function sendMessage() {
     const messageBox = document.getElementById("messages");
     const messageInput = document.getElementById("chat-message");
@@ -160,22 +165,6 @@ const mockUsers = [
     { username: "user1", password: "pass1" },
     { username: "user2", password: "pass2" }
 ];
-
-document.addEventListener('DOMContentLoaded', () => {
-    if (sessionStorage.getItem("loggedIn")) {
-    }
-});
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    const loginForm = document.getElementById('loginForm');
-    if (loginForm) {
-        loginForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            validateLogin();
-        });
-    }
-});
 
 function simulateChatResponse() {
     const messageBox = document.getElementById("messages");
@@ -211,3 +200,24 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = "login.html"; // Redirect to login if not authenticated
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    displayProjects();
+    setupLoginForm();
+    checkLoginStatus();
+});
+
+function setupLoginForm() {
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            validateLogin();
+        });
+    }
+}
+
+function checkLoginStatus() {
+    if (sessionStorage.getItem("loggedIn")) {
+    }
+}
