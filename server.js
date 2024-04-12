@@ -44,3 +44,22 @@ app.post('/api/login', async (req, res) => {
       res.status(500).send('Server error');
   }
 });
+
+const WebSocket = require('ws');
+const server = require('http').createServer(app);
+const wss = new WebSocket.Server({ server });
+
+wss.on('connection', function connection(ws) {
+  ws.on('message', function incoming(message) {
+    console.log('received: %s', message);
+    ws.send('Message received!');
+  });
+
+  ws.on('close', () => {
+    console.log('Client disconnected');
+  });
+});
+
+server.listen(3000, () => {
+  console.log('Server running on http://localhost:3000');
+});
