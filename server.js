@@ -3,9 +3,8 @@ const mongoose = require('mongoose');
 const User = require('/User');
 const express = require('express');
 const app = express();
-app.use(express.json());
-
 const mongoURI = `mongodb+srv://${process.env.DB_USER}:${encodeURIComponent(process.env.DB_PASSWORD)}@${process.env.DB_HOST}/${process.env.DB_NAME}?retryWrites=true&w=majority&appName=Cluster0`;
+app.use(express.json());
 
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected successfully'))

@@ -50,17 +50,15 @@ function toggleDescription(descId) {
     }
 }
 
-const signupForm = document.getElementById('signupForm');
-if (signupForm) {
-  signupForm.addEventListener('submit', function(event) {
+document.getElementById('signupForm').addEventListener('submit', function(event) {
     event.preventDefault();
     const formData = {
-      name: document.getElementById('name').value,
-      phoneNumber: document.getElementById('phoneNumber').value,
+      username: document.getElementById('name').value,
       email: document.getElementById('email').value,
+      phoneNumber: document.getElementById('phoneNumber').value,
       password: document.getElementById('password').value,
     };
-
+  
     fetch('/api/signup', {
       method: 'POST',
       headers: {
@@ -68,16 +66,15 @@ if (signupForm) {
       },
       body: JSON.stringify(formData),
     })
-    .then(response => {
-      if (response.ok) {
-        window.location.href = 'user.html';
-      } else {
-        return response.text().then(text => { throw new Error(text) });
-      }
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
     })
-    .catch(error => alert('Error during sign up: ' + error.message));
+    .catch((error) => {
+      console.error('Error:', error);
+    });
   });
-}
+  
   
 
 const mockProjects = [
