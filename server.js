@@ -28,3 +28,20 @@ mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
 app.listen(3000, () => {
   console.log(`Server running`);
 });
+
+app.post('/api/login', async (req, res) => {
+  const { email, password } = req.body;
+  try {
+      const user = await User.findOne({ email });
+      if (!user) {
+          return res.status(404).send('User not found');
+      }
+      const isMatch = bcrypt.compareSync(password, user.password);
+      if (!isMatch) {
+          return res.status(400).send('Invalid credentials');
+      }
+      res.status(200).send('Login successful');
+  } catch (error) {
+      res.status(500).send('Server error');
+  }
+});
