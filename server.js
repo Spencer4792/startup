@@ -62,3 +62,9 @@ wss.on('connection', function connection(ws) {
     console.log('Client disconnected');
   });
 });
+
+app.post('/api/feedback', async (req, res) => {
+  const { feedback } = req.body;
+  console.log('Feedback received:', feedback);
+  res.status(200).send({ message: 'Feedback received' });
+});
