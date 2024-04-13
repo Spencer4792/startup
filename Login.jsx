@@ -7,22 +7,16 @@ function Login() {
     const [credentials, setCredentials] = useState({ username: '', password: '' });
     const [loginMessage, setLoginMessage] = useState('');
 
-    const handleChange = (event) => {
-        const { name, value } = event.target;
-        setCredentials(prevState => ({
-            ...prevState,
-            [name]: value
-        }));
+    const handleChange = e => {
+        const { name, value } = e.target;
+        setCredentials({...credentials, [name]: value});
     };
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        setLoginMessage('Logging in...');
+    const handleSubmit = async (e) => {
+        e.preventDefault();
         try {
-            const response = await axios.post('/api/login', {
-                email: credentials.username,
-                password: credentials.password
-            });
+            const response = await axios.post('/api/login', credentials);
+            localStorage.setItem('token', response.data.token);
             console.log(response.data);
             setLoginMessage('Login successful!');
         } catch (error) {
