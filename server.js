@@ -79,3 +79,21 @@ app.post('/api/feedback', async (req, res) => {
 server.listen(process.env.PORT || 3000, () => {
     console.log(`Server started on port ${server.address().port}`);
 });
+
+const jwt = require('jsonwebtoken');
+const SECRET_KEY = 'PLACEHOLDER';
+
+app.post('/api/login', async (req, res) => {
+    const { email, password } = req.body;
+    try {
+        const user = await User.findOne({ email });
+        if (user && bcrypt.compareSync(password, user.password)) {
+            const token = jwt.sign({ id: user._id }, SECRET_KEY, { expiresIn: '1h' });
+            res.json({ message: "Login successful", token });
+        } else {
+            res.status(401).send('Invalid credentials');
+        }
+    } catch (error) {
+        res.status(500).send('Server error');
+    }
+});
