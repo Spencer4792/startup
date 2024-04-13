@@ -89,3 +89,13 @@ Here is a rough outline of what the app format would look like: ![Project Plan](
 
 ## user.js
 - Added tons of functionality, including the ability to pull data from a node server and then move it to the mongo database.
+
+## STARTUP WEBSOCKET IMPLEMENTATION
+
+## main.js
+- Nearly all of the changes were to the main.js file. The changes included the integration of a feedback page, the finalization of the chat functionality, and the ability for user's who are logged in to view their own personal projects.
+
+## server.js
+- Changes to server.js contained mostly websocket integration, and an attempt to link my database to the website.
+
+## STARTUP REACT IMPLEMENTATION
