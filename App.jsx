@@ -6,6 +6,7 @@ import About from './About';
 import Contact from './Contact';
 import Services from './Services';
 import Signup from './Signup';
+import Projects from './Projects';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/services" element={<Services />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/projects" element={<Projects />} />
       </Routes>
     </Router>
   );
