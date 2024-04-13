@@ -5,7 +5,7 @@ import '../styles/Header.css';
 function Header() {
   return (
     <div className="header-container">
-      <img src="assets/GardenHouse.png" alt="Top Banner" className="top-banner" />
+      <img src="/assets/GardenHouse.png" alt="Top Banner" className="top-banner" />
       <header>
         <nav>
           <ul>
@@ -22,5 +22,3 @@ function Header() {
     </div>
   );
 }
-
-export default Header;
