@@ -7,6 +7,7 @@ import Contact from './Contact';
 import Services from './Services';
 import Signup from './Signup';
 import Projects from './Projects';
+import Login from './login';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </Router>
   );
