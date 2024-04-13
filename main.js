@@ -17,6 +17,33 @@ socket.onclose = function(event) {
     console.log("WebSocket connection closed:", event);
 };
 
+function displayProjects(searchQuery = '') {
+    const projectsContainer = document.getElementById("project-list");
+    projectsContainer.innerHTML = '<h1>Featured Projects</h1>';
+
+    const filteredProjects = mockProjects.filter(project =>
+        project.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    filteredProjects.forEach(project => {
+        const projectHTML = `
+            <div class="project">
+                ${project.imageUrl ? `<img src="${project.imageUrl}" alt="${project.name}" class="project-image">` : ''}
+                <h2>${project.name}</h2>
+                <p><strong>Completion Date:</strong> ${project.completionDate}</p>
+                <p><strong>Location:</strong> ${project.location}</p>
+                <p>${project.description}</p>
+            </div>
+        `;
+        projectsContainer.innerHTML += projectHTML;
+    });
+}
+
+document.getElementById('search-input').addEventListener('input', (event) => {
+    const searchQuery = event.target.value;
+    displayProjects(searchQuery);
+});
+
 function addMessageToChat(sender, message) {
     const messageBox = document.getElementById("messages");
     const messageElement = document.createElement("p");
@@ -107,26 +134,6 @@ const mockProjects = [
     { id: 5, name: "Crappy Residential Complex", completionDate: "2023-12-14", location: "Detroit", description: "This ain't our finest work.", imageUrl: "assets/crappyApartment.jpeg" }
 ];
 
-function displayProjects(searchQuery = '') {
-    const projectsContainer = document.getElementById("project-list");
-    projectsContainer.innerHTML = '<h1>Featured Projects</h1>';
-
-    const filteredProjects = mockProjects.filter(project => project.name.toLowerCase().includes(searchQuery.toLowerCase()));
-
-    filteredProjects.forEach(project => {
-        const projectHTML = `
-            <div class="project">
-                ${project.imageUrl ? `<img src="${project.imageUrl}" alt="${project.name}" class="project-image">` : ''}
-                <h2>${project.name}</h2>
-                <p><strong>Completion Date:</strong> ${project.completionDate}</p>
-                <p><strong>Location:</strong> ${project.location}</p>
-                <p>${project.description}</p>
-            </div>
-        `;
-        projectsContainer.innerHTML += projectHTML;
-    });
-}
-
 document.getElementById('search-input').addEventListener('input', (event) => {
     displayProjects(event.target.value);
 });
@@ -134,3 +141,32 @@ document.getElementById('search-input').addEventListener('input', (event) => {
 document.addEventListener('DOMContentLoaded', () => {
     displayProjects();
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    displayProjects();
+    setupEventListeners();
+});
+
+function setupEventListeners() {
+    document.getElementById('search-input').addEventListener('input', function(event) {
+        displayProjects(event.target.value);
+    });
+
+    const toggleButtons = document.querySelectorAll('.service-detail h2');
+    toggleButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            toggleDescription(button.getAttribute('data-target'));
+        });
+    });
+}
+
+function toggleDescription(descId) {
+    var description = document.getElementById(descId);
+    if (description.style.display === "none" || !description.style.display) {
+        description.style.display = "block";
+        description.previousElementSibling.querySelector('.toggle-indicator').textContent = '-';
+    } else {
+        description.style.display = "none";
+        description.previousElementSibling.querySelector('.toggle-indicator').textContent = '+';
+    }
+}
