@@ -8,6 +8,7 @@ import Services from './Services';
 import Signup from './Signup';
 import Projects from './Projects';
 import Login from './login';
+import Chat from './Chat';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/chat" element={<Chat />} />
       </Routes>
     </Router>
   );
