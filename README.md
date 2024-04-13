@@ -99,3 +99,42 @@ Here is a rough outline of what the app format would look like: ![Project Plan](
 - Changes to server.js contained mostly websocket integration, and an attempt to link my database to the website.
 
 ## STARTUP REACT IMPLEMENTATION
+
+## Login.jsx
+- Handles the user login functionality. This component presents a form where users can enter their credentials. It interacts with the backend to authenticate users and manage sessions via JWT tokens, ensuring secure access to the application.
+
+## Projects.jsx
+- Displays a list of projects. Users can view all projects and search through them using a dynamic search feature. It fetches project data from the backend and renders it in an organized manner, allowing for easy access to project details.
+
+## Services.jsx
+- This component lists the services provided by the startup. It uses an accordion-style layout to display detailed information about each service, allowing users to expand each section to read more about the offerings.
+
+## Signup.jsx
+- Manages the user registration process. It provides a form where new users can sign up by entering their personal information, which is then sent to the backend to create a new user account in the database.
+
+## User.jsx
+- A simple user profile component that greets logged-in users. It displays basic user information, enhancing the personalized experience of the application.
+
+## About.jsx
+- Provides information about the startup. This component displays the mission, vision, history, and other relevant details that help users understand more about my company’s background.
+
+## App.jsx
+- The main component that wraps all other components. It sets up the routing for the entire application using React Router, defining how users navigate through different parts of the SPA.
+
+## Chat.jsx
+- Facilitates real-time communication within the application. It includes a chat interface where users can send messages and receive automated responses, simulating a live chat environment.
+
+## Contact.jsx
+- Contains a contact form where users can submit inquiries or messages. This component handles data collection from user inputs and communicates with the backend to store or process these inquiries.
+
+## ContactMessage.js
+- Defines the schema for contact messages.
+
+## Home.jsx
+- The homepage component of the application. It welcomes users and provides links or navigation to various other parts of the application like Projects, Services, and About.
+
+## index.js
+- The entry point of the React application. It initializes the root component (App.jsx) and renders it to the DOM. This file includes setup configurations like the top-level Router and possibly other providers like Redux or Context API.
+
+## AuthContext.js
+- Manages the authentication state across the application using React Context. It provides a way to share state about the logged-in user among all components without passing props manually at every level.
